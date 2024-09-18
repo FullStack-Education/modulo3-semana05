@@ -13,11 +13,16 @@ export class CalculadoraComponent {
   num1!: number;
   num2: number = 0;
   result: number = 0;
+  num3 = null;
 
   constructor(private calculadoraService: CalculadoraService){}
 
   somarValores(){
     this.result = this.calculadoraService.somar(this.num1, this.num2);
+  }
+
+  dividirValores(){
+    this.result = this.calculadoraService.dividir(this.num1, this.num2);
   }
 
 }
