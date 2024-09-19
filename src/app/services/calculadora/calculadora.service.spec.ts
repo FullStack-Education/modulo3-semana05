@@ -46,7 +46,7 @@ describe('CalculadoraService', () => {
     expect(service.validarNome("J0ao")).not.toBeTruthy();
   });
 
-  it('deve retornar false para strings e numeros', () => {
+  it('deve retornar false para strings com caracteres especiais', () => {
     expect(service.validarNome("João")).not.toBeTruthy();
   });
 

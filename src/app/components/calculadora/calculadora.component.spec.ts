@@ -59,6 +59,8 @@ describe('CalculadoraComponent', () => {
     let nota = false;
 
     expect(nota).toBeFalsy();
+    // expect(nota).toBeTrue();
+    // expect(nota).toBeFalse();
   });
 
   
