@@ -50,4 +50,43 @@ describe('CalculadoraService', () => {
     expect(service.validarNome("João")).not.toBeTruthy();
   });
 
+  it('deve ficar espionando a função somar e retornar um valor fixo', () => {
+    const spy = spyOn(service, 'somar').and.returnValue(5);
+
+    const result = service.somar(2, 8);
+    expect(result).toBe(5);
+    console.log("resultado: ", result);
+  });
+
+  it('deve ficar espionando a função somar e se comportar da forma original', () => {
+    const spy = spyOn(service, 'somar').and.callThrough();
+
+    const result = service.somar(2, 8);
+    expect(result).toBe(10);
+    console.log("resultado: ", result);
+  });
+
+  it('deve ficar espionando a função somar e verficar se ela foi chamada ao menos 1 vez', () => {
+    const spy = spyOn(service, 'somar').and.callThrough();
+
+    service.somar(2, 8);
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('deve ficar espionando a função somar e verficar se ela foi chamada 3 vezes', () => {
+    const spy = spyOn(service, 'somar').and.callThrough();
+
+    service.somar(2, 8);
+    service.somar(2, 8);
+    service.somar(2, 8);
+    expect(spy).toHaveBeenCalledTimes(3);
+  });
+
+  xit('deve ficar espionando a função somar e verficar quais parametros foram passados', () => {
+    const spy = spyOn(service, 'somar').and.callThrough();
+
+    service.somar(2, 8);
+    expect(spy).toHaveBeenCalledWith(2, 3);
+  });
+
 });
